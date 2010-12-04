@@ -5,7 +5,7 @@
 Name:           %{name}
 Version:        %{version}
 Release:        %mkrel %{rel}
-Summary:        Fast and accurate real-time satellite tracking.
+Summary:        Fast and accurate real-time satellite tracking
 Group:          Sciences/Geosciences
 License:        GPLv2
 URL:            http://gpredict.oz9aec.net
