@@ -1,5 +1,5 @@
 %define name    gpredict
-%define version 1.2
+%define version 1.3
 %define rel     1
 
 Name:           %{name}
@@ -7,10 +7,9 @@ Version:        %{version}
 Release:        %mkrel %{rel}
 Summary:        Fast and accurate real-time satellite tracking
 Group:          Sciences/Geosciences
-License:        GPLv2
+License:        GPLv2+
 URL:            http://gpredict.oz9aec.net
-Source:         http://sourceforge.net/projects/gpredict/files/Gpredict/1.2/%{name}-%{version}.tar.gz
-BuildRequires:  hamlib
+Source:         http://sourceforge.net/projects/gpredict/files/Gpredict/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  libncurses-devel
 BuildRequires:  libstdc++-devel
 BuildRequires:  libcurl-devel
@@ -41,12 +40,11 @@ Gpredict includes the following features:
 
        
 %prep
-
 %setup -q
        
 %build
 %configure2_5x --enable-coverage
-%make LIBS=-lm
+%make
 
 %install
 rm -rf %{buildroot}
@@ -63,4 +61,5 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}
+%{_datadir}/pixmaps/%{name}-icon.png
 %{_mandir}/man1/gpredict.*
