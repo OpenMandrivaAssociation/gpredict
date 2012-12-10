@@ -1,21 +1,21 @@
 %define name    gpredict
 %define version 1.3
-%define rel     1
+%define rel     2
 
 Name:           %{name}
 Version:        %{version}
-Release:        %mkrel %{rel}
+Release:        %{rel}
 Summary:        Fast and accurate real-time satellite tracking
 Group:          Sciences/Geosciences
 License:        GPLv2+
 URL:            http://gpredict.oz9aec.net
-Source:         http://sourceforge.net/projects/gpredict/files/Gpredict/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:  libncurses-devel
+Source0:         http://sourceforge.net/projects/gpredict/files/Gpredict/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libstdc++-devel
-BuildRequires:  libcurl-devel
-BuildRequires:  gtk+-devel
+BuildRequires:  pkgconfig(libcurl)
+BuildRequires:  pkgconfig(gtk+)
 BuildRequires:  intltool >= 0.21
-BuildRequires:  goocanvas-devel
+BuildRequires:  pkgconfig(goocanvas)
        
 %description
 Gpredict includes the following features:
@@ -47,19 +47,28 @@ Gpredict includes the following features:
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}
 %{_datadir}/pixmaps/%{name}-icon.png
 %{_mandir}/man1/gpredict.*
+
+
+%changelog
+* Mon Mar 14 2011 Jani Välimaa <wally@mandriva.org> 1.3-1mdv2011.0
++ Revision: 644702
+- new version 1.3
+- fix license
+- drop unneeded BRs
+
+* Sat Dec 04 2010 Thomas Spuhler <tspuhler@mandriva.org> 1.2-1mdv2011.0
++ Revision: 609560
+- removed the dot at the end of the Summary line
+- import gpredict
+
