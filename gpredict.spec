@@ -8,7 +8,7 @@ Release:        %{rel}
 Summary:        Fast and accurate real-time satellite tracking
 Group:          Sciences/Geosciences
 License:        GPLv2+
-URL:            http://gpredict.oz9aec.net
+URL:            https://gpredict.oz9aec.net
 Source0:         http://sourceforge.net/projects/gpredict/files/Gpredict/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libstdc++-devel
