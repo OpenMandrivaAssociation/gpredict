@@ -10,6 +10,11 @@ Group:          Sciences/Geosciences
 License:        GPLv2+
 URL:            https://gpredict.oz9aec.net
 Source0:         http://sourceforge.net/projects/gpredict/files/Gpredict/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  libstdc++-devel
 BuildRequires:  pkgconfig(libcurl)
